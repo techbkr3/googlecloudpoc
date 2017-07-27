@@ -1,0 +1,18 @@
+<div>
+	<div id="panel-login" class="panel panel-default">
+		<div class="panel-heading">Login</div>
+		<p>If you enter password as password, result is success, otherwise result is failure
+		<div class="panel-body">
+			<form ng-controller="loginCtrl">
+				<p class="nowrap error">{{User.error}}</p>
+				<input type="text" ng-model="User.username" />
+				<br><br>
+				<input type="password" ng-model="User.password" /> 
+				<br><br>
+				<button type="button" class="btn btn-lg" ng-click="login()">Login</button>
+				<br><br>
+				{{authResult}}
+			</form>
+		</div>
+	</div>
+</div>
