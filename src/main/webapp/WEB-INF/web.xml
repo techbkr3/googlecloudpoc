@@ -23,10 +23,15 @@
 		<servlet-class>com.capgemini.googlecloud.ImportBillsServlet</servlet-class>
 		<init-param>
 			<param-name>javax.ws.rs.Application</param-name>
-			<param-value>com.capgemini.dbt.ImportBillsApplication</param-value>
+			<param-value>com.capgemini.googlecloud.ImportBillsApplication</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ImportBillsServlet</servlet-name>
+		<url-pattern>/webapi/*</url-pattern>
+	</servlet-mapping>
 	
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

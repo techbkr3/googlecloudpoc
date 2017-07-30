@@ -549,3 +549,8 @@ opacity:0.8;
 }
 #countdown span{color:red;}
 #countdown span.showdate{color:blue;}
+
+.dropzone {
+	height: 30px;
+	width: 100px;
+}
