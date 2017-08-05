@@ -4,7 +4,9 @@ var importBillsDirectives = angular.module('importBillsDirectives', []);
 importBillsDirectives.directive('dropZone', function () {
     return {
         scope: {
-            action: "@"
+            action: "@",
+            file : '=',
+            fileName : '='            
         },
         link: function (scope, element, attrs) {
             console.log("Creating dropzone");
