@@ -47,7 +47,7 @@ public class FileUploadResource extends BaseResource {
 			@FormDataParam("file") FormDataContentDisposition fileDetail) {
 		System.out.println("In upload method of FileUploadResource");
 		System.out.println("filename:" + fileDetail.getFileName());
-		String uploadedFileLocation = "D://temp/" + fileDetail.getFileName();
+		String uploadedFileLocation = "/tmp/" + fileDetail.getFileName();
 		Integer byteCount = writeToFile(uploadedInputStream, uploadedFileLocation);
 		System.out.println("filesize:" + byteCount);
 		return Response.ok(byteCount).build();
@@ -66,7 +66,6 @@ public class FileUploadResource extends BaseResource {
 	      int read = 0;
 	      byte[] bytes = new byte[1024];
 	      
-	      // out = new FileOutputStream(new File(uploadedFileLocation));
 	      while ((read = uploadedInputStream.read(bytes)) != -1) {
 	        out.write(bytes, 0, read);
 	        byteCount += read;
