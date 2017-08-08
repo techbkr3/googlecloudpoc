@@ -1,10 +1,10 @@
 package com.capgemini.googlecloud.web;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.security.GeneralSecurityException;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
@@ -13,6 +13,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.apache.log4j.Logger;
+import org.capgemini.googlecloud.helper.StorageSample;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.FormDataParam;
 import org.springframework.stereotype.Component;
@@ -45,8 +46,22 @@ public class FileUploadResource extends BaseResource {
 			@FormDataParam("file") FormDataContentDisposition fileDetail) {
 		System.out.println("In upload method of FileUploadResource");
 		System.out.println("filename:" + fileDetail.getFileName());
+		
 		String uploadedFileLocation = "/tmp/" + fileDetail.getFileName();
 		Integer byteCount = writeToFile(uploadedInputStream, uploadedFileLocation);
+		
+		try {
+			File file = new File(uploadedFileLocation);
+			System.out.println("Before Upload");
+			StorageSample.uploadFile(fileDetail.getFileName(), "image/jpg", file, "poc-importbills");
+			System.out.println("After Upload");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (GeneralSecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		System.out.println("filesize:" + byteCount);
 		return Response.ok(byteCount).build();
 	}
