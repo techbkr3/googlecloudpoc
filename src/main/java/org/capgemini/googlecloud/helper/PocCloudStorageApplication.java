@@ -9,7 +9,7 @@ public class PocCloudStorageApplication {
 	public static void main(String[] args) {
 
 		try {
-			File tempFile = new File("D:/workspace/googlecloud/googlecloudpoc/docs/samples/invoice001/Invoice001.gif");
+			File tempFile = new File("/home/umamagscg/googlecloudpoc/docs/samples/invoice001/Invoice001.gif");
 			StorageSample uploadData = new StorageSample();
 			uploadData.uploadFile(TEST_FILENAME, "image/gif", tempFile, "poc-importbills");
 
