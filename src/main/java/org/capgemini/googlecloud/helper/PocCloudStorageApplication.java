@@ -1,0 +1,26 @@
+package org.capgemini.googlecloud.helper;
+
+import java.io.File;
+import java.io.IOException;
+
+public class PocCloudStorageApplication {
+	private static final String TEST_FILENAME = "Courier_HSBC.png";
+
+	public static void main(String[] args) {
+
+		try {
+			File tempFile = new File("D:/workspace/googlecloud/googlecloudpoc/docs/samples/invoice001/Invoice001.gif");
+			StorageSample uploadData = new StorageSample();
+			uploadData.uploadFile(TEST_FILENAME, "image/gif", tempFile, "poc-importbills");
+
+			//VisionOCRAnalysis ocrAnalysis = new VisionOCRAnalysis();
+			//ocrAnalysis.OCRAnalysis();
+		} catch (IOException e) {
+			System.err.println(e.getMessage());
+			System.exit(1);
+		} catch (Throwable t) {
+			t.printStackTrace();
+			System.exit(1);
+		}
+	}
+}
