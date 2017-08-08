@@ -75,65 +75,16 @@
 			<version>2.6</version>
 		</dependency>
 
-		 <dependency>
+		<dependency>
 			<groupId>javax.validation</groupId>
 			<artifactId>validation-api</artifactId>
 			<version>1.1.0.Final</version>
 		</dependency>
 		<dependency>
-    		<groupId>org.jsoup</groupId>
-    		<artifactId>jsoup</artifactId>
-    		<version>1.8.2</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-config</artifactId>
-			<version>${spring.security.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>spring-tx</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>spring-jdbc</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-web</artifactId>
-			<version>${spring.security.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>spring-tx</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>spring-jdbc</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-taglibs</artifactId>
-			<version>${spring.security.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>spring-tx</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>spring-jdbc</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-aop</artifactId>
-			<version>${spring.version}</version>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${aspectj.version}</version>
+			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -180,16 +131,6 @@
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-annotations</artifactId>
 			<version>2.5.0</version>
-		</dependency>		
-		<dependency>
-			<groupId>org.glassfish.jersey.test-framework.providers</groupId>
-			<artifactId>jersey-test-framework-provider-grizzly2</artifactId>
-			<version>${jersey.spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.glassfish.jersey.containers</groupId>
-			<artifactId>jersey-container-grizzly2-servlet</artifactId>
-			<version>${jersey.spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>
@@ -197,69 +138,9 @@
 			<version>9.3-1100-jdbc41</version>
 		</dependency>
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.6</version>
-		</dependency>
-		<dependency>
-			<groupId>net.sf.ehcache</groupId>
-			<artifactId>ehcache</artifactId>
-			<version>2.9.0</version>
-		</dependency>
-		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>1.7.10</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
-			<version>${spring.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>${logback.version}</version>
-			<scope>runtime</scope>
-		</dependency>		
-		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjrt</artifactId>
-			<version>${aspectj.version}</version>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjtools</artifactId>
-			<version>${aspectj.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
-		</dependency>
-		<dependency>
-			<groupId>com.googlecode.json-simple</groupId>
-			<artifactId>json-simple</artifactId>
-			<version>1.1</version>
-		</dependency>
-
-		<!-- for get mimetype of the file -->
-		<dependency>
-			<groupId>org.apache.tika</groupId>
-			<artifactId>tika-core</artifactId>
-			<version>1.8</version>
-		</dependency>
-		<dependency>
-		  <groupId>io.swagger</groupId>
-		  <artifactId>swagger-jersey2-jaxrs</artifactId>
-		  <version>1.5.0</version>
-		</dependency>		
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>18.0</version>
 		</dependency>
 	</dependencies>
 
@@ -284,52 +165,19 @@
 				</configuration>
 			</plugin>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.10.3</version>				
-				<executions>
-					<execution>
-						<id>attach-javadocs</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-						<configuration>
-               			 <additionalparam>-Xdoclint:none</additionalparam>
-          			  </configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.18</version>
+				<artifactId>jersey-bean-validation</artifactId>
+				<version>2.13</version>
 				<dependencies>
 					<dependency>
-						<groupId>org.apache.maven.surefire</groupId>
-						<artifactId>surefire-junit47</artifactId>
-						<version>2.18</version>
+						<groupId>org.glassfish.jersey.ext</groupId>
+						<artifactId>jersey-bean-validation</artifactId>
+						<version>2.13</version>
 					</dependency>
 				</dependencies>
 				<configuration>
-					<includes>
-						<include>**/JerseyTestSuite.java</include>
-					</includes>
+					<packagingExcludes>WEB-INF/lib/jersey-bean-validation-2.13.jar</packagingExcludes>
 				</configuration>
 			</plugin>
-			<plugin>
-        <artifactId>jersey-bean-validation</artifactId>
-        <version>2.13</version>
-        <dependencies>
-        <dependency>
-			<groupId>org.glassfish.jersey.ext</groupId>
-			<artifactId>jersey-bean-validation</artifactId>
-			<version>2.13</version>
-		</dependency>
-        </dependencies>
-        <configuration>
-          <packagingExcludes>WEB-INF/lib/jersey-bean-validation-2.13.jar</packagingExcludes>
-        </configuration>
-      </plugin>
 		</plugins>
 	</build>
 </project>

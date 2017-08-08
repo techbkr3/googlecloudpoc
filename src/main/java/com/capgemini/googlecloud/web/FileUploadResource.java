@@ -17,15 +17,13 @@ import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.FormDataParam;
 import org.springframework.stereotype.Component;
 
-import io.swagger.annotations.Api;
-
 /**
  * This class exposes the REST services related to file upload
  * 
  * @author
  *
  */
-@Api
+
 @Component
 @Path("/file")
 public class FileUploadResource extends BaseResource {
