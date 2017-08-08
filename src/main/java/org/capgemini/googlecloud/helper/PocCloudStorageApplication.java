@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class PocCloudStorageApplication {
-	private static final String TEST_FILENAME = "Courier_HSBC.png";
+	private static final String TEST_FILENAME = "Invoice001.gif";
 
 	public static void main(String[] args) {
 
