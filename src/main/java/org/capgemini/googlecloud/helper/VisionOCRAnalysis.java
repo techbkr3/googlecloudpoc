@@ -31,18 +31,17 @@ public class VisionOCRAnalysis {
 			System.out.println("No stream");
 			return null;
 		}
-		/*
 		Scanner httpResponseScanner = new Scanner(httpConnection.getInputStream());
 		String resp = "";
 		while (httpResponseScanner.hasNext()) {
 			String line = httpResponseScanner.nextLine();
 			resp += line;
+			System.out.print(".");
 			//System.out.println(line); // alternatively, print the line of
 										// response
 		}
 		httpResponseScanner.close();
-		*/
-		System.out.println("Response length = " + response.length());
-		return response;
+		System.out.println("Response length = " + resp.length());
+		return resp;
 	}
 }
