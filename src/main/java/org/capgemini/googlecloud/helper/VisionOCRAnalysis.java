@@ -12,7 +12,7 @@ public class VisionOCRAnalysis {
 	private static final String TARGET_URL = "https://vision.googleapis.com/v1/images:annotate?";
 	private static final String API_KEY = "key=AIzaSyDzYqDGtLFzXX07z-a-fdYJmHukwRHntRI";
 
-	public static void OCRAnalysis() throws IOException {
+	public String OCRAnalysis(String filename) throws IOException {
 		URL serverUrl = new URL(TARGET_URL + API_KEY);
 		URLConnection urlConnection = serverUrl.openConnection();
 		HttpURLConnection httpConnection = (HttpURLConnection) urlConnection;
@@ -22,14 +22,14 @@ public class VisionOCRAnalysis {
 		BufferedWriter httpRequestBodyWriter = new BufferedWriter(
 				new OutputStreamWriter(httpConnection.getOutputStream()));
 		httpRequestBodyWriter.write("{\"requests\":  [{ \"features\":  [ {\"type\": \"DOCUMENT_TEXT_DETECTION\""
-				+ "}], \"image\": {\"source\": { \"gcsImageUri\":" + " \"gs://poc-importbills/Courier_HSBC.png\"}}}]}");
+				+ "}], \"image\": {\"source\": { \"gcsImageUri\":" + " \"gs://poc-importbills/" + filename + "\"}}}]}");
 		httpRequestBodyWriter.close();
 		String response = httpConnection.getResponseMessage();
 
 		System.out.println("response------------->" + response);
 		if (httpConnection.getInputStream() == null) {
 			System.out.println("No stream");
-			return;
+			return null;
 		}
 
 		Scanner httpResponseScanner = new Scanner(httpConnection.getInputStream());
@@ -41,5 +41,6 @@ public class VisionOCRAnalysis {
 										// response
 		}
 		httpResponseScanner.close();
+		return resp;
 	}
 }

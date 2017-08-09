@@ -14,6 +14,7 @@ import javax.ws.rs.core.Response;
 
 import org.apache.log4j.Logger;
 import org.capgemini.googlecloud.helper.StorageSample;
+import org.capgemini.googlecloud.helper.VisionOCRAnalysis;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.FormDataParam;
 import org.springframework.stereotype.Component;
@@ -55,6 +56,11 @@ public class FileUploadResource extends BaseResource {
 			System.out.println("Before Upload");
 			StorageSample.uploadFile(fileDetail.getFileName(), "image/jpg", file, "poc-importbills");
 			System.out.println("After Upload");
+			VisionOCRAnalysis ocr = new VisionOCRAnalysis();
+			System.out.println("Before ocr");
+			String ocrResp = ocr.OCRAnalysis(fileDetail.getFileName());
+			System.out.println("After ocr");
+			System.out.println(ocrResp);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

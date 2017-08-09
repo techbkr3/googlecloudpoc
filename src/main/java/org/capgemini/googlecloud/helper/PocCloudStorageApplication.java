@@ -13,8 +13,8 @@ public class PocCloudStorageApplication {
 			StorageSample uploadData = new StorageSample();
 			uploadData.uploadFile(TEST_FILENAME, "image/gif", tempFile, "poc-importbills");
 
-			//VisionOCRAnalysis ocrAnalysis = new VisionOCRAnalysis();
-			//ocrAnalysis.OCRAnalysis();
+			VisionOCRAnalysis ocrAnalysis = new VisionOCRAnalysis();
+			ocrAnalysis.OCRAnalysis(TEST_FILENAME);
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
 			System.exit(1);
