@@ -54,13 +54,13 @@ public class FileUploadResource extends BaseResource {
 		
 		try {
 			File file = new File(uploadedFileLocation);
-			System.out.println("Before Upload");
+			System.out.println("Before Upload " + fileDetail.getFileName());
 			StorageSample.uploadFile(fileDetail.getFileName(), "image/jpg", file, "poc-importbills");
-			System.out.println("After Upload");
+			System.out.println("After Upload 1" + fileDetail.getFileName());
 			VisionOCRAnalysis ocr = new VisionOCRAnalysis();
-			System.out.println("Before ocr");
+			System.out.println("Before ocr " + fileDetail.getFileName());
 			ocrResp = ocr.OCRAnalysis(fileDetail.getFileName());
-			System.out.println("After ocr");
+			System.out.println("After ocr" + fileDetail.getFileName());
 			System.out.println("response length = " + ocrResp.length());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

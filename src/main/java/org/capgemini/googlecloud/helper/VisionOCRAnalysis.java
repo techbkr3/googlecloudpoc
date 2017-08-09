@@ -26,7 +26,7 @@ public class VisionOCRAnalysis {
 		httpRequestBodyWriter.close();
 		String response = httpConnection.getResponseMessage();
 
-		System.out.println("response------------->" + response);
+		//System.out.println("response------------->" + response);
 		if (httpConnection.getInputStream() == null) {
 			System.out.println("No stream");
 			return null;
