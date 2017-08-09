@@ -37,7 +37,7 @@ public class VisionOCRAnalysis {
 		while (httpResponseScanner.hasNext()) {
 			String line = httpResponseScanner.nextLine();
 			resp += line;
-			System.out.println(line); // alternatively, print the line of
+			//System.out.println(line); // alternatively, print the line of
 										// response
 		}
 		httpResponseScanner.close();
