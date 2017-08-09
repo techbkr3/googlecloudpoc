@@ -33,10 +33,14 @@ public class VisionOCRAnalysis {
 		}
 		Scanner httpResponseScanner = new Scanner(httpConnection.getInputStream());
 		String resp = "";
+		int i =0;
 		while (httpResponseScanner.hasNext()) {
+			i++;
 			String line = httpResponseScanner.nextLine();
 			resp += line;
-			System.out.print(".");
+			
+			if (i % 10000 == 0)
+				System.out.print(".");
 			//System.out.println(line); // alternatively, print the line of
 										// response
 		}
