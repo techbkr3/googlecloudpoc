@@ -40,6 +40,7 @@ importBillsDirectives.directive('dropZone', function () {
                 autoProcessQueue: scope.autoProcess,
                 success: function (file, response) {
                 	console.log(file);
+                	console.log(response);
                     if (scope.callBack != null) {
                         scope.callBack({response: response});
                     }

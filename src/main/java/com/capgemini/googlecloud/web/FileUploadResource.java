@@ -50,6 +50,7 @@ public class FileUploadResource extends BaseResource {
 		
 		String uploadedFileLocation = "/tmp/" + fileDetail.getFileName();
 		Integer byteCount = writeToFile(uploadedInputStream, uploadedFileLocation);
+		String ocrResp = null;
 		
 		try {
 			File file = new File(uploadedFileLocation);
@@ -58,9 +59,9 @@ public class FileUploadResource extends BaseResource {
 			System.out.println("After Upload");
 			VisionOCRAnalysis ocr = new VisionOCRAnalysis();
 			System.out.println("Before ocr");
-			String ocrResp = ocr.OCRAnalysis(fileDetail.getFileName());
+			ocrResp = ocr.OCRAnalysis(fileDetail.getFileName());
 			System.out.println("After ocr");
-			System.out.println(ocrResp);
+			System.out.println("response length = " + ocrResp.length());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -69,7 +70,7 @@ public class FileUploadResource extends BaseResource {
 			e.printStackTrace();
 		}
 		System.out.println("filesize:" + byteCount);
-		return Response.ok(byteCount).build();
+		return Response.ok(ocrResp).build();
 	}
 
 	  // save uploaded file to new location
